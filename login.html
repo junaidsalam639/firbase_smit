@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <h1 style="text-align: center;">sing In</h1>
+            <input type="email" name="email" id="email1" placeholder="enter your email"><br><br>
+            <input type="password" name="password" id="password1" placeholder="enter your password"><br><br>
+            <!-- <a href="./singup.html">     -->
+                <button id="btn" style="text-align: center;">Creat Account</button>
+            <!-- </a> -->
+        </div>
+    </div>
+
+
+
+    <!-- <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDnQAk5ONtVrlVukJNA1ah4dt0kZVCpzBk",
+            authDomain: "save-be155.firebaseapp.com",
+            projectId: "save-be155",
+            storageBucket: "save-be155.appspot.com",
+            messagingSenderId: "863459774933",
+            appId: "1:863459774933:web:a3f93c5c1e9c547212ad5c",
+            measurementId: "G-RJZGW4XBQG"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById("btn").addEventListener('click', () => {
+            let email = document.getElementById("email2").value;
+            let password = document.getElementById("password2").value;
+            console.log(email, password);
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                });
+        })
+    </script> -->
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDnQAk5ONtVrlVukJNA1ah4dt0kZVCpzBk",
+            authDomain: "save-be155.firebaseapp.com",
+            projectId: "save-be155",
+            storageBucket: "save-be155.appspot.com",
+            messagingSenderId: "863459774933",
+            appId: "1:863459774933:web:a3f93c5c1e9c547212ad5c",
+            measurementId: "G-RJZGW4XBQG"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById("btn").addEventListener("click", () => {
+            // const auth = getAuth();
+            let email = document.getElementById("email1").value;
+            let password = document.getElementById("password1").value;
+            console.log(email, password);
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    alert("SING UP SUCSECCFULLY")
+                    const user = userCredential.user;
+                    window.location.href = './singup.html'
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                });
+        })
+ </script>
+</body>
+
+</html>
